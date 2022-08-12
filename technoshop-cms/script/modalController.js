@@ -13,6 +13,8 @@ const openModal = (id) => {
 export const closeModal = () => {
   modal.classList.remove('d-block');
   form.reset();
+  form.id.value = '';
+  form.imagesave.value = '';
   hidePreview();
 };
 
@@ -31,7 +33,7 @@ export const modalController = ({ btn, delegation }) => {
       const targetExclude = target.closest(delegation.targetExclude);
       if (goodsRow && !targetExclude) {
         modalTitle.textContent = `Изменить товар #${goodsRow.dataset.id}`;
-        modalSubmitBtn.textContent = 'Добавить товар';
+        modalSubmitBtn.textContent = 'Изменить товар';
         openModal( goodsRow.dataset.id)
       }
     })
